@@ -14,7 +14,7 @@ metadata:
     ai.sap.com/version: "2.0"
 spec:
   imagePullSecrets:
-    - name: credshack2build # your docker registry secret
+    - name: credshack2build  #your docker registry secret
   entrypoint: mypipeline
   arguments:
     parameters: # placeholder for string like inputs
