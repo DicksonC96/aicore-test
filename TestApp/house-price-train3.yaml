@@ -19,7 +19,7 @@ spec:
     parameters: # placeholder for string like inputs
         - name: DT_MAX_DEPTH # identifier local to this workflow
   templates:
-  - name: mypipeline
+  - - name: mypipeline
     steps:
     - name: mypredictor
         template: mycodeblock1
