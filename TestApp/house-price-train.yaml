@@ -22,6 +22,7 @@ spec:
     artifacts:  # placeholder for cloud storage attachements
         - name: housedataset # a name for the placeholder
           path: /app/data/ # where to copy in the Dataset in the Docker image
+          key: housedataset-key # unique identifier for the artifact on the artifact repository
   templates:
   - name: mypipeline
     steps:
