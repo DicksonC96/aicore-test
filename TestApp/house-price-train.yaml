@@ -11,7 +11,7 @@ metadata:
     artifacts.ai.sap.com/housemodel.kind: "model" # Helps in suggesting the kind of artifact that can be generated.
   labels:
     scenarios.ai.sap.com/id: "learning-datalines-dc"
-    ai.sap.com/version: "3.0"
+    ai.sap.com/version: "4.0"
 spec:
   imagePullSecrets:
     - name: credsdicksonc # your docker registry secret
@@ -41,10 +41,12 @@ spec:
             none:   # specify not to compress while uploading to cloud
               {}
     container:
-      image: docker.io/dicksonc/house-price:05 # Your docker image name
+      image: docker.io/dicksonc/house-price:06 # Your docker image name
       command: ["/bin/sh", "-c"]
       env:
         - name: DT_MAX_DEPTH # name of the environment variable inside Docker container
           value: "{{workflow.parameters.DT_MAX_DEPTH}}" # value to set from local (to workflow) variable DT_MAX_DEPTH
+        - name: STORAGE_URI
+          value: "{{inputs.artifacts.modelArtifact}}"
       args:
         - "python /app/src/main.py"
