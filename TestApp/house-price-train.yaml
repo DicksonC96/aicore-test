@@ -7,11 +7,11 @@ metadata:
     scenarios.ai.sap.com/name: "House Price (Tutorial) DC" # Scenario name should be the use case
     executables.ai.sap.com/description: "Train with live data"
     executables.ai.sap.com/name: "training" # Executable name should describe the workflow in the use case
-    artifacts.ai.sap.com/housedataset.kind: "dataset" # Helps in suggesting the kind of inputs that can be attached.
+    artifacts.ai.sap.com/housedataset.kind: "dataset" # Helps in suggesting the kind of artifact that can be attached.
     artifacts.ai.sap.com/housemodel.kind: "model" # Helps in suggesting the kind of artifact that can be generated.
   labels:
     scenarios.ai.sap.com/id: "learning-datalines-dc"
-    ai.sap.com/version: "5.0"
+    ai.sap.com/version: "6.0"
 spec:
   imagePullSecrets:
     - name: credsdicksonc # your docker registry secret
@@ -25,9 +25,6 @@ spec:
     - - name: mypredictor
         template: mycodeblock1
   - name: mycodeblock1
-    metadata:
-      labels:
-        ai.sap.com/resourcePlan: starter
     inputs:
       artifacts:  # placeholder for cloud storage attachements
         - name: housedataset # a name for the placeholder
